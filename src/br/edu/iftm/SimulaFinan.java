@@ -178,7 +178,7 @@ public class SimulaFinan extends JInternalFrame {
 		btnSimularFinanciamento.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-							
+			
 			}
 		});
 		
