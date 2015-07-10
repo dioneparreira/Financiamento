@@ -19,7 +19,7 @@ public class Menu {
 	private JFrame frame_Menu;
 	
 	JMenuBar Barra_Menu;
-	JMenu Menu_simulador, Menu_ajuda;
+	JMenu Menu_simulador;
 	JMenuItem financiamento, sair;
 	private JDesktopPane desktopPane_Princ;
 
@@ -64,10 +64,6 @@ public class Menu {
 		Menu_simulador = new JMenu("Início");
 		Menu_simulador.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Barra_Menu.add(Menu_simulador);
-		
-		Menu_ajuda = new JMenu("Help");
-		Menu_ajuda.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		Barra_Menu.add(Menu_ajuda);
 		
 		financiamento = new JMenuItem("Simular Financiamento");
 		financiamento.addActionListener(new ActionListener() {

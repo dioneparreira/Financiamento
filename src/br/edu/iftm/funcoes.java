@@ -45,7 +45,7 @@ public static String resumo (float juros, double valor_veiculo, double parcela, 
 	"\nEntrada mínima de 20 por cento do valor do veículo: R$ " + String.valueOf(funcoes.calculo_entrada(valor_veiculo)) + 
 	"\nValor da parcela: " + meses +"x: R$" + String.valueOf(parcela) + 
 	"\nValor Entrada: R$" + entrada +
-	"\nValor Total: R$" + parcela*meses);
+	"\nValor Total Financiado: R$" + parcela*meses);
 	
 	return mensagem;
 	/*System.out.printf("Taxa de Juros: " + String.valueOf(juros) + " a.m.");

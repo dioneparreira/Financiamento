@@ -89,10 +89,10 @@ public class SimulaFinan extends JInternalFrame {
 		setMaximizable(true);
 		setBounds(100, 100, 618, 797);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		getContentPane().setLayout(gridBagLayout);
 		
 		JLabel lblVLVeic = new JLabel("VALOR DO VEICULO:");
@@ -112,7 +112,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_textField_VLVEIC.gridwidth = 2;
 		gbc_textField_VLVEIC.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_VLVEIC.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_VLVEIC.gridx = 1;
+		gbc_textField_VLVEIC.gridx = 2;
 		gbc_textField_VLVEIC.gridy = 2;
 		getContentPane().add(textField_VLVEIC, gbc_textField_VLVEIC);
 		
@@ -132,7 +132,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_textField_VLENTR.gridwidth = 2;
 		gbc_textField_VLENTR.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_VLENTR.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_VLENTR.gridx = 1;
+		gbc_textField_VLENTR.gridx = 2;
 		gbc_textField_VLENTR.gridy = 5;
 		getContentPane().add(textField_VLENTR, gbc_textField_VLENTR);
 		
@@ -142,21 +142,8 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_lblNumeroDePrestacao.insets = new Insets(0, 0, 25, 35);
 		gbc_lblNumeroDePrestacao.anchor = GridBagConstraints.NORTHEAST;
 		gbc_lblNumeroDePrestacao.gridx = 0;
-		gbc_lblNumeroDePrestacao.gridy = 8;
+		gbc_lblNumeroDePrestacao.gridy = 9;
 		getContentPane().add(lblNumeroDePrestacao, gbc_lblNumeroDePrestacao);
-		
-		
-		combomeses = new JComboBox();
-		combomeses.setBounds(10, 600, 100, 20);
-		combomeses.setVisible(true);
-		combomeses.addItem("");
-		combomeses.addItem("12");
-		combomeses.addItem("24");
-		combomeses.addItem("36");
-		combomeses.addItem("48");
-		combomeses.addItem("60");
-		combomeses.addItem("72");
-		this.add(combomeses);
 		
 		/*JComboBox combobox = new JComboBox();
 		
@@ -178,13 +165,33 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_comboBox.gridy = 8;
 		getContentPane().add(combobox);*/
 		
+		
+		combomeses = new JComboBox();
+		combomeses.setBounds(10, 600, 100, 20);
+		combomeses.setVisible(true);
+		combomeses.addItem("");
+		combomeses.addItem("12");
+		combomeses.addItem("24");
+		combomeses.addItem("36");
+		combomeses.addItem("48");
+		combomeses.addItem("60");
+		combomeses.addItem("72");
+		GridBagConstraints gbc_combomeses = new GridBagConstraints();
+		gbc_combomeses.fill = GridBagConstraints.HORIZONTAL;
+		gbc_combomeses.anchor = GridBagConstraints.NORTH;
+		gbc_combomeses.gridwidth = 2;
+		gbc_combomeses.insets = new Insets(0, 0, 25, 35);
+		gbc_combomeses.gridx = 2;
+		gbc_combomeses.gridy = 9;
+		getContentPane().add(combomeses, gbc_combomeses);
+		
 		JLabel lblTaxaDeJuros = new JLabel("TAXA DE JUROS:");
 		lblTaxaDeJuros.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		GridBagConstraints gbc_lblTaxaDeJuros = new GridBagConstraints();
 		gbc_lblTaxaDeJuros.insets = new Insets(0, 0, 25, 35);
 		gbc_lblTaxaDeJuros.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblTaxaDeJuros.gridx = 0;
-		gbc_lblTaxaDeJuros.gridy = 11;
+		gbc_lblTaxaDeJuros.gridy = 12;
 		getContentPane().add(lblTaxaDeJuros, gbc_lblTaxaDeJuros);
 		
 		textField_TAXAJUROS = new JTextField();
@@ -194,8 +201,8 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_textField_TAXAJUROS.gridwidth = 2;
 		gbc_textField_TAXAJUROS.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_TAXAJUROS.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_TAXAJUROS.gridx = 1;
-		gbc_textField_TAXAJUROS.gridy = 11;
+		gbc_textField_TAXAJUROS.gridx = 2;
+		gbc_textField_TAXAJUROS.gridy = 12;
 		getContentPane().add(textField_TAXAJUROS, gbc_textField_TAXAJUROS);
 		
 		JLabel lblRendaMensalBruta = new JLabel("RENDA MENSAL BRUTA:");
@@ -204,7 +211,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_lblRendaMensalBruta.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblRendaMensalBruta.insets = new Insets(0, 0, 25, 35);
 		gbc_lblRendaMensalBruta.gridx = 0;
-		gbc_lblRendaMensalBruta.gridy = 14;
+		gbc_lblRendaMensalBruta.gridy = 15;
 		getContentPane().add(lblRendaMensalBruta, gbc_lblRendaMensalBruta);
 		
 		textField_RENDA = new JTextField();
@@ -214,8 +221,8 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_textField_RENDA.gridwidth = 2;
 		gbc_textField_RENDA.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_RENDA.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_RENDA.gridx = 1;
-		gbc_textField_RENDA.gridy = 14;
+		gbc_textField_RENDA.gridx = 2;
+		gbc_textField_RENDA.gridy = 15;
 		getContentPane().add(textField_RENDA, gbc_textField_RENDA);
 		
 		JButton btnSimularFinanciamento = new JButton("SIMULAR FINANCIAMENTO");
@@ -300,7 +307,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_btnSimularFinanciamento.anchor = GridBagConstraints.EAST;
 		gbc_btnSimularFinanciamento.insets = new Insets(25, 0, 5, 45);
 		gbc_btnSimularFinanciamento.gridx = 0;
-		gbc_btnSimularFinanciamento.gridy = 16;
+		gbc_btnSimularFinanciamento.gridy = 17;
 		getContentPane().add(btnSimularFinanciamento, gbc_btnSimularFinanciamento);
 		
 		JButton btnLimparDados = new JButton("LIMPAR DADOS");
@@ -318,8 +325,8 @@ public class SimulaFinan extends JInternalFrame {
 		GridBagConstraints gbc_btnLimparDados = new GridBagConstraints();
 		gbc_btnLimparDados.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnLimparDados.insets = new Insets(25, 0, 5, 45);
-		gbc_btnLimparDados.gridx = 1;
-		gbc_btnLimparDados.gridy = 16;
+		gbc_btnLimparDados.gridx = 2;
+		gbc_btnLimparDados.gridy = 17;
 		getContentPane().add(btnLimparDados, gbc_btnLimparDados);
 		
 		JButton btnNewButton = new JButton("CANCELAR");
@@ -339,8 +346,8 @@ public class SimulaFinan extends JInternalFrame {
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.insets = new Insets(25, 0, 5, 0);
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 16;
+		gbc_btnNewButton.gridx = 3;
+		gbc_btnNewButton.gridy = 17;
 		getContentPane().add(btnNewButton, gbc_btnNewButton);
 		
 		JLabel lblNewLabel_Resumo = new JLabel("New Label");
@@ -351,7 +358,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_lblNewLabel_Resumo.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_Resumo.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_Resumo.gridx = 0;
-		gbc_lblNewLabel_Resumo.gridy = 19;
+		gbc_lblNewLabel_Resumo.gridy = 20;
 		getContentPane().add(lblNewLabel_Resumo, gbc_lblNewLabel_Resumo);
 						
 	}
