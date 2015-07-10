@@ -1,5 +1,7 @@
 package br.edu.iftm;
 
+import javax.swing.JOptionPane;
+
 public class funcoes {
 
 public static float calculo_parcela_min(float salario){
@@ -37,26 +39,33 @@ public static double valor_parcela(double juros, double val_veiculo, int meses, 
 		
 }
 
-public static void resumo (float juros, double valor_veiculo, double parcela, int meses, double entrada){
+public static String resumo (float juros, double valor_veiculo, double parcela, int meses, double entrada){
+	String mensagem = ("Taxa de Juros: " + String.valueOf(juros) + " a.m." +
+	"\nValor Veículo: R$" + String.valueOf(valor_veiculo) +
+	"\nEntrada mínima de 20 por cento do valor do veículo: R$ " + String.valueOf(funcoes.calculo_entrada(valor_veiculo)) + 
+	"\nValor da parcela: " + meses +"x: R$" + String.valueOf(parcela) + 
+	"\nValor Entrada: R$" + entrada +
+	"\nValor Total: R$" + parcela*meses);
 	
-	System.out.printf("Taxa de Juros: " + String.valueOf(juros) + " a.m.");
+	return mensagem;
+	/*System.out.printf("Taxa de Juros: " + String.valueOf(juros) + " a.m.");
 	System.out.printf("\nValor Veículo: R$" + String.valueOf(valor_veiculo) +
 	"\nEntrada mínima de 20 por cento do valor do veículo: R$ " + String.valueOf(funcoes.calculo_entrada(valor_veiculo)));
 	System.out.printf("\nValor da parcela: " + meses +"x: R$" + String.valueOf(parcela));
 	System.out.printf("\nValor Entrada: R$" + entrada);
-	System.out.printf("\nValor Total: R$" + parcela*meses);
+	System.out.printf("\nValor Total: R$" + parcela*meses);*/
 	
 }
 
 public static boolean valida(float salario, double parcela, double veiculo, double entrada){
 	if (calculo_parcela_min(salario) < parcela)
-	{System.out.print("Valor da parcela maior que o permitido para esse cliente! \n\n");
-	simula.main(null);
+	{JOptionPane.showMessageDialog(null, "Valor da parcela maior que o permitido para esse cliente!", "Erro", 0);
+	//simula.main(null);
 		return false;}
 	
-	if (entrada < calculo_entrada(veiculo))
-	{System.out.print("Valor insuficiente da entrada! \n\n");
-	simula.main(null);
+	if (entrada < calculo_entrada(veiculo))		
+	{JOptionPane.showMessageDialog(null, "Valor insuficiente da entrada!", "Erro", 0);
+	//simula.main(null);
 		return false;}
 	
 	else

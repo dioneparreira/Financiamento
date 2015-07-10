@@ -2,23 +2,31 @@ package br.edu.iftm;
 
 import java.awt.EventQueue;
 
+
+
+
 //import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import java.awt.GridBagLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.GridBagConstraints;
 import java.awt.Font;
 import java.awt.Insets;
 //import java.awt.SystemColor;
 
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 //import java.util.Scanner;
+
 
 import javax.swing.JComboBox;
 //import javax.swing.DefaultComboBoxModel;
@@ -35,6 +43,7 @@ public class SimulaFinan extends JInternalFrame {
 	private JTextField textField_VLENTR;
 	private JTextField textField_TAXAJUROS;
 	private JTextField textField_RENDA;
+	private JComboBox combomeses;
 	//private JComboBox<E>
 	
 	private float valorVeic;
@@ -136,16 +145,29 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_lblNumeroDePrestacao.gridy = 8;
 		getContentPane().add(lblNumeroDePrestacao, gbc_lblNumeroDePrestacao);
 		
-		final JComboBox comboBox = new JComboBox();
-		//comboBox.setModel(new DefaultComboBoxModel(new String[] {}));
-		comboBox.addItem(new ComboItem(0,""));
-		comboBox.addItem(new ComboItem(1,"12 meses"));
-		comboBox.addItem(new ComboItem(2,"24 meses"));
-		comboBox.addItem(new ComboItem(3,"36 meses"));
-		comboBox.addItem(new ComboItem(4,"48 meses"));
-		comboBox.addItem(new ComboItem(5,"60 meses"));
-		comboBox.addItem(new ComboItem(6,"72 meses"));
 		
+		combomeses = new JComboBox();
+		combomeses.setBounds(10, 600, 100, 20);
+		combomeses.setVisible(true);
+		combomeses.addItem("");
+		combomeses.addItem("12");
+		combomeses.addItem("24");
+		combomeses.addItem("36");
+		combomeses.addItem("48");
+		combomeses.addItem("60");
+		combomeses.addItem("72");
+		this.add(combomeses);
+		
+		/*JComboBox combobox = new JComboBox();
+		
+		combobox.addItem(new ComboItem(0,""));
+		combobox.addItem(new ComboItem(1,"12 meses"));
+		combobox.addItem(new ComboItem(2,"24 meses"));
+		combobox.addItem(new ComboItem(3,"36 meses"));
+		combobox.addItem(new ComboItem(4,"48 meses"));
+		combobox.addItem(new ComboItem(5,"60 meses"));
+		combobox.addItem(new ComboItem(6,"72 meses"));
+		combobox.
 		
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.gridwidth = 2;
@@ -154,7 +176,7 @@ public class SimulaFinan extends JInternalFrame {
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 8;
-		getContentPane().add(comboBox, gbc_comboBox);
+		getContentPane().add(combobox);*/
 		
 		JLabel lblTaxaDeJuros = new JLabel("TAXA DE JUROS:");
 		lblTaxaDeJuros.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -200,70 +222,77 @@ public class SimulaFinan extends JInternalFrame {
 		btnSimularFinanciamento.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				
-				float sal;
-		        double valor_veiculo;
-		       	float juros = 0;
-		        float valor_entrada;
-		        int meses;
+				if (textField_RENDA.getText().isEmpty() || textField_VLENTR.getText().isEmpty() || textField_VLVEIC.getText().isEmpty() ||
+						textField_TAXAJUROS.getText().isEmpty() || combomeses.getSelectedIndex() == 0)
+				{JOptionPane.showMessageDialog(null, "Existe algum campo vazio!", "Preencha todos campos", 0);}
+				else{
+												float sal;
+												double valor_veiculo;
+												float juros = 0;
+												float valor_entrada;
+												int meses;
 		        
 		        
-		     //valor_final(0.02, 10,0000, 2);
+												//valor_final(0.02, 10,0000, 2);
 		     
 		     
-		    //System.out.println("Digite sua renda: ");
-			sal = Float.parseFloat(textField_RENDA.getText());
-		    //System.out.println("\nDigite o valor do veículo: ");
-			valor_veiculo = Float.parseFloat(textField_VLVEIC.getText());
-			//System.out.println("\nDigite o valor da entrada: ");
-			valor_entrada = Float.parseFloat(textField_VLENTR.getText());
-			//System.out.println("\nTaxa de juros ao mês: ");
-			juros = Float.parseFloat(textField_TAXAJUROS.getText());
-			//System.out.println("\nEscolha a parcela do Financiamento: \n(1) 12x\n(2) 24x\n(3) 36x\n(4) 48x\n(5) 60x\n(6) 72x\n(0) Sair");
-			meses = comboBox.getSelectedIndex();
-			JOptionPane.showInputDialog(meses);
-			
-			//lblNewLabel_Resumo.setVisible(true);
-			
-			switch (meses)
-			{
-				case 1: 
-					meses=12;
-					break;
+												//System.out.println("Digite sua renda: ");
+												sal = Float.parseFloat(textField_RENDA.getText());
+												//System.out.println("\nDigite o valor do veículo: ");
+												valor_veiculo = Float.parseFloat(textField_VLVEIC.getText());
+												//System.out.println("\nDigite o valor da entrada: ");
+												valor_entrada = Float.parseFloat(textField_VLENTR.getText());
+												//System.out.println("\nTaxa de juros ao mês: ");
+												juros = funcoes.juros(Float.parseFloat(textField_TAXAJUROS.getText()));
+												//System.out.println("\nEscolha a parcela do Financiamento: \n(1) 12x\n(2) 24x\n(3) 36x\n(4) 48x\n(5) 60x\n(6) 72x\n(0) Sair");
+												//comboBox.getSelectedIndex();
+												//JOptionPane.showInputDialog(meses);
+												//lblNewLabel_Resumo.setVisible(true);
+												//JOptionPane.showInputDialog(meses);
+												meses = 0;
+												switch (combomeses.getSelectedIndex())
+												{
+													case 1: 
+														meses = 12;	
+														break;
 				
-				case 2: 
-					meses=24;
-					break;
+													case 2: 
+														meses=24;
+														break;
 					
-				case 3: 
-					meses=36;
-					break;
+													case 3: 
+														meses=36;														
+														break;
 					
-				case 4: 
-					meses=48;
-					break;
+													case 4: 
+														meses=48;
+														break;
 					
-				case 5: 
-					meses=60;
-					break;
+													case 5: 
+														meses=60;
+														break;
 					
-				case 6: 
-					meses=72;					
+													case 6: 
+														meses=72;					
 							
-					break; 
+														break; 
 					
-				case 0:
-					break;		
+													case 0:
+														break;		
 					
-			}
-			double parcela = funcoes.valor_parcela(juros, valor_veiculo, meses, valor_entrada);
-			if (funcoes.valida(sal, parcela, valor_veiculo, valor_entrada) == true)
-			{
-			funcoes.resumo(juros, valor_veiculo, parcela, meses, valor_entrada); 
+												}
+												double parcela = funcoes.valor_parcela(juros, valor_veiculo, meses, valor_entrada);
+												if (funcoes.valida(sal, parcela, valor_veiculo, valor_entrada) == true)
+												{
+													JOptionPane.showMessageDialog(null, funcoes.resumo(juros, valor_veiculo, parcela, meses, valor_entrada), "Resumo", 1);
+													 
 			
+												}
+			
+														}
+				
 			}
 			
-			}
 				
 		});
 		
